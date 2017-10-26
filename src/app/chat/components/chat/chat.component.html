@@ -1,3 +1,14 @@
+
+<div class="left">
+  <ul>
+    <li *ngFor="let channel of channels"
+        [ngClass]="{'selected': channel._id === channelId}"
+        (click)="onSelectChannel(channel)">
+      {{channel.name}}
+    </li>
+  </ul>
+</div>
+<div class="right">
 <ul>
   <li *ngFor="let message of messages">
     <p><span class="name">{{message.userName}}</span> <span class="timestamp">{{message.timestamp | calendar}}</span></p>
@@ -9,3 +20,4 @@
 <form [formGroup]="messageForm" (ngSubmit)="onSendMessage()">
   <input formControlName="message" placeholder="Click enter to send"/>
 </form>
+</div>
