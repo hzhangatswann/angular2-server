@@ -4,3 +4,8 @@
     <p>{{message.content}}</p>
   </li>
 </ul>
+
+
+<form [formGroup]="messageForm" (ngSubmit)="onSendMessage()">
+  <input formControlName="message" placeholder="Click enter to send"/>
+</form>
