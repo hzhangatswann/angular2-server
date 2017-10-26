@@ -22,11 +22,13 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this.messageForm = this.fb.group({
-      message: ''
+      message: ['', Validators.required]
     });
   }
 
   onSendMessage() {
+    if (!this.messageForm.valid) return;
+    
     const message = {
       _id: String(this.messages.length),
       channelId: '0',
