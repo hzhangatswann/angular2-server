@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-chat-area-bottom',
   templateUrl: './chat-area-bottom.component.html',
-  styleUrls: ['./chat-area-bottom.component.css']
+  styleUrls: ['./chat-area-bottom.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChatAreaBottomComponent implements OnInit {
   @Input() channelId: string;
