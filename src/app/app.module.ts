@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/components/chat/chat.component';
 import { CalendarPipe } from './shared/pipes/calendar.pipe';
 
+import { ChatService } from './chat/services/chat.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,7 @@ import { CalendarPipe } from './shared/pipes/calendar.pipe';
     ReactiveFormsModule,
     BrowserModule
   ],
-  providers: [],
+  providers: [ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
