@@ -1,0 +1,7 @@
+
+<ul>
+  <li *ngFor="let message of messages">
+    <p><span class="name">{{message.userName}}</span> <span class="timestamp">{{message.timestamp | calendar}}</span></p>
+    <p>{{message.content}}</p>
+  </li>
+</ul>
