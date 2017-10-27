@@ -74,4 +74,16 @@ export class ChatService {
     this.messagesDb = [...this.messagesDb, message];
   }
 
+  addChannel(channelName: string): void {
+    const channel: Channel = {
+      _id: String(this.channelsDb.length),
+      name: channelName
+    };
+
+    // fake API, add channel to the database
+    this.channelsDb = [...this.channelsDb, channel];
+
+    this.channels = [...this.channels, channel];
+  }
+
 }

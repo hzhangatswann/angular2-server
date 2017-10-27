@@ -45,8 +45,11 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   onGoProfile() {
-    console.log('>>>>>>');
     this.router.navigate(['/profile']);
+  }
+
+  onAddChannel(channelName: string) {
+    this.chatService.addChannel(channelName);
   }
 
 }

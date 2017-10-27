@@ -17,6 +17,8 @@ import { routes } from './shared/routes/app.routes';
 import { InfoComponent } from './profile/components/info/info.component';
 import { ProfileComponent } from './profile/components/profile/profile.component';
 import { ChannelHeaderComponent } from './chat/components/channel-header/channel-header.component';
+import { ChatAreaHeaderComponent } from './chat/components/chat-area-header/chat-area-header.component';
+import { ChannelAddComponent } from './chat/components/channel-add/channel-add.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ChannelHeaderComponent } from './chat/components/channel-header/channel
     ChannelListComponent,
     InfoComponent,
     ProfileComponent,
-    ChannelHeaderComponent
+    ChannelHeaderComponent,
+    ChatAreaHeaderComponent,
+    ChannelAddComponent
   ],
   imports: [
     FormsModule,

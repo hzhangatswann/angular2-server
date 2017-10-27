@@ -13,7 +13,6 @@ export class ChannelHeaderComponent {
   @Output() goProfile = new EventEmitter<void>();
 
   private onGoProfile() {
-    console.log('........');
     this.goProfile.emit(null);
   }
 

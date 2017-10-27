@@ -4,6 +4,9 @@
     [name]="profileService.currentUser.name"
     (goProfile)="onGoProfile()">
   </app-channel-header>
+  <app-channel-add
+    (addChannel)="onAddChannel($event)">
+  </app-channel-add>
   <app-channel-list
     [channels]="chatService.channels"
     [channelId]="chatService.channel?._id"
@@ -12,6 +15,9 @@
 </div>
 
 <div class="right">
+  <app-chat-area-header
+    [channelName]="chatService.channel?.name">
+  </app-chat-area-header>
   <app-chat-area-dialog
     [messages]="chatService.messages">
   </app-chat-area-dialog>
