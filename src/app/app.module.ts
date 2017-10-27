@@ -20,6 +20,10 @@ import { ChannelHeaderComponent } from './chat/components/channel-header/channel
 import { ChatAreaHeaderComponent } from './chat/components/chat-area-header/chat-area-header.component';
 import { ChannelAddComponent } from './chat/components/channel-add/channel-add.component';
 
+import { StoreModule } from '@ngrx/store';
+import { profileReducer } from './profile/reducers/profile.reducer';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +43,9 @@ import { ChannelAddComponent } from './chat/components/channel-add/channel-add.c
     ReactiveFormsModule,
     BrowserModule,
     RouterModule.forRoot(routes),
+    StoreModule.forRoot({
+      profile: profileReducer
+    })
   ],
   providers: [ChatService, ProfileService],
   bootstrap: [AppComponent]

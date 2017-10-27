@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProfileService } from '../../services/profile.service';
+
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+
+import { State } from '../../../shared/models/state.model';
+import { ProfileState } from '../../reducers/profile.reducer';
+import { ProfileActions } from '../../actions/profile.actions';
+
+//import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,12 +16,18 @@ import { ProfileService } from '../../services/profile.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
+  profileModel$: Observable<ProfileState>;
+
   constructor(
-    private profileService: ProfileService
+    private store: Store<State>
   ) {}
 
+  ngOnInit() {
+    this.profileModel$ = this.store.select<ProfileState>('profile');
+  }
+
   private onUpdateProfile(name: string) {
-    this.profileService.updateProfile(name);
+    this.store.dispatch({ type: ProfileActions.PROFILE_UPDATE_PROFILE, payload: name });
     window.history.back();
   }
 

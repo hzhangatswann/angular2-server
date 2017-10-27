@@ -1,4 +1,4 @@
 <app-info
-  [name]="profileService.currentUser.name"
+  [name]="(profileModel$ | async)?.name"
   (updateProfile)="onUpdateProfile($event)">
 </app-info>
