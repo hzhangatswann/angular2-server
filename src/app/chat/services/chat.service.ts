@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 
 import { Message } from '../models/chat.model';
 import { Channel } from '../models/channel.model';
+import { ProfileService } from '../../profile/services/profile.service';
 
 @Injectable()
 export class ChatService {
 
-  constructor() { }
+  constructor(private profileService: ProfileService) { }
 
   // fake database
   private channelsDb: Channel[] = [
@@ -61,8 +62,8 @@ export class ChatService {
     const message = {
       _id: String(this.messagesDb.length),
       channelId,
-      userId: '0',
-      userName: 'Jack',
+      userId: this.profileService.currentUser._id,
+      userName: this.profileService.currentUser.name,
       content: messageContent,
       timestamp: new Date()
     };

@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs/Subscription';
 //import { Message } from '../../models/chat.model';
 import { Channel } from '../../models/channel.model';
 import { ChatService } from "../../services/chat.service";
+import { ProfileService } from '../../../profile/services/profile.service';
+
 
 @Component({
   selector: 'app-chat',
@@ -17,7 +19,8 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private chatService: ChatService) {}
+              private chatService: ChatService,
+              private profileService: ProfileService) {}
 
   ngOnInit() {
     this.chatService.getChannels();
@@ -39,6 +42,11 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   onSendMessage({ channelId, messageContent }) {
     this.chatService.sendMessage(channelId, messageContent);
+  }
+
+  onGoProfile() {
+    console.log('>>>>>>');
+    this.router.navigate(['/profile']);
   }
 
 }

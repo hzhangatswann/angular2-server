@@ -1,5 +1,9 @@
 
 <div class="left">
+  <app-channel-header
+    [name]="profileService.currentUser.name"
+    (goProfile)="onGoProfile()">
+  </app-channel-header>
   <app-channel-list
     [channels]="chatService.channels"
     [channelId]="chatService.channel?._id"
