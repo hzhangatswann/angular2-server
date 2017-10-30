@@ -3,12 +3,11 @@ import { Component, OnInit } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 import { State } from '../../../shared/models/state.model';
-import { ProfileState } from '../../reducers/profile.reducer';
+import { ProfileState, profileSelector } from '../../reducers/profile.reducer';
 import { ProfileActions } from '../../actions/profile.actions';
-
-//import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -23,7 +22,7 @@ export class ProfileComponent {
   ) {}
 
   ngOnInit() {
-    this.profileModel$ = this.store.select<ProfileState>('profile');
+    this.profileModel$ = this.store.select<ProfileState>(profileSelector);
   }
 
   private onUpdateProfile(name: string) {
