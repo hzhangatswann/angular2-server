@@ -1,4 +1,4 @@
-import '@ngrx/core/add/operator/select';  // for this.store.select
+//import '@ngrx/core/add/operator/select';  // for this.store.select
 
 // in later chapters, we will use these operators
 import 'rxjs/add/observable/of';
