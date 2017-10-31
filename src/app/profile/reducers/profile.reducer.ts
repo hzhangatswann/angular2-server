@@ -14,7 +14,7 @@ const initialState: ProfileState = {
 
 export function profileReducer(state = initialState, action: Action): ProfileState {
   switch (action.type) {
-    case ProfileActions.PROFILE_UPDATE_PROFILE: {
+    case ProfileActions.PROFILE_UPDATE_PROFILE_SUCCESS: {
       console.log('PROFILE_UPDATE_PROFILE', action, Object.assign({}, state, { name: action['payload'] }));
       return Object.assign({}, state, { name: action['payload'] });
     }

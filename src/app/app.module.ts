@@ -22,7 +22,8 @@ import { ChannelAddComponent } from './chat/components/channel-add/channel-add.c
 
 import { StoreModule } from '@ngrx/store';
 import { profileReducer } from './profile/reducers/profile.reducer';
-
+import { EffectsModule } from '@ngrx/effects';
+import { ProfileEffects } from './profile/effects/profile.effects';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,11 @@ import { profileReducer } from './profile/reducers/profile.reducer';
     ReactiveFormsModule,
     BrowserModule,
     RouterModule.forRoot(routes),
+
+    EffectsModule.forRoot([
+      ProfileEffects
+    ]),
+
     StoreModule.forRoot({
       profile: profileReducer
     })
